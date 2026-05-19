@@ -45,3 +45,4 @@ class Outcome {
     }
 }
 
+module.exports = Outcome
