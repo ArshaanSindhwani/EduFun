@@ -28,4 +28,4 @@ The game page is where the scenario based educational page is played. The *situa
 
 ![Progress Page](./images/ProgressPage.png)
 
-This page is the final page after you have finished all 4 scenarios on the game page. You can see your game scores on the right and your overall subject scores. On the left bar you can see the same layout for the game page bar. In the top right corner the back button will take you back to the home page to restart the game.
+This page is the final page after you have finished all 4 scenarios on the game page. You can see your game scores on the right and your overall subject scores. On the left bar you can see the same layout for the home page bar. In the top right corner the back button will take you back to the home page to restart the game.
