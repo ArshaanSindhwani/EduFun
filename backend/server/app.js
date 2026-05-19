@@ -2,6 +2,8 @@ const express = require("express")
 const cors = require("cors")
 const logger = require("morgan")
 
+const loginRouter = require("./3. Routers/LOGIN")
+
 const app = express()
 
 app.use(express.json())
