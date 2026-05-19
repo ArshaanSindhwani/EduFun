@@ -12,7 +12,7 @@ CREATE TABLE student (
     id INT GENERATED ALWAYS AS IDENTITY,
     name VARCHAR(100) NOT NULL,
     username VARCHAR(20) NOT NULL UNIQUE,
-    class VARCHAR(10) NOT NULL,
+    form VARCHAR(10),
     password VARCHAR(30) NOT NULL,
     PRIMARY KEY (id)
 );
@@ -52,16 +52,16 @@ CREATE TABLE questions (
     id INT GENERATED ALWAYS AS IDENTITY,
     challenge_id INT NOT NULL,
     text VARCHAR(500) NOT NULL,
-    answer_id INT NOT NULL,
+    image_url VARCHAR(200),
     PRIMARY KEY (id),
-    FOREIGN KEY (challenge_id) REFERENCES challenges(id),
-    FOREIGN KEY (answer_id) REFERENCES answers(id)
+    FOREIGN KEY (challenge_id) REFERENCES challenges(id)
 )
 
 CREATE TABLE answers (
     id INT GENERATED ALWAYS AS IDENTITY,
     text VARCHAR(500) NOT NULL,
     score_id INT NOT NULL,
+    question_id INT NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (score_id) REFERENCES score(id)
 )
