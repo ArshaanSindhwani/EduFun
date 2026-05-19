@@ -27,10 +27,16 @@ class Login {
 
     static async create(data) {
         const { username, password, name, form } = data
-        let response = await db.query("INSERT INTO student (username, password, name, form) VALUES ($1, $2, $3, $4) RETURNING *", [username, password, name, form])
+
+        if (!username || !password || !name || !form) {
+            throw new Error("Missing required fields.")
+        }
+
+        const response = await db.query("INSERT INTO student (username, password, name, form) VALUES ($1, $2, $3, $4) RETURNING *", [username, password, name, form])
         const newId = response.rows[0].id
         const newUser = await Login.getOneById(newId)
-        return newUser
+        
+        return new Login (newUser)
     }
 }
 
