@@ -44,7 +44,7 @@ async function login(req, res) {
       const payload = {
         username: user.username,
         student_id: user.id,
-        class: user.class,
+        form: user.form,
       };
 
       const sendToken = (err, token) => {
@@ -59,7 +59,7 @@ async function login(req, res) {
             id: user.id,
             name: user.name,
             username: user.username,
-            class: user.class,
+            form: user.form,
           },
         });
       };
