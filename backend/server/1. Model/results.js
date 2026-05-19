@@ -1,19 +1,23 @@
 const db = require("../DB/connect")
 
-class Results {
-    constructor({ id, student_id, teacher_id, outcome_id, subject_id }) {
+class Outcome {
+    constructor({ id, student_id, score, challenge_id }) {
         this.id = id
         this.student_id = student_id
-        this.teacher_id = teacher_id
-        this.outcome_id = outcome_id
-        this.subject_id = subject_id
+        this.score = score
+        this.challenge_id = challenge_id
     }
 
     static async getAllByStudentId(studentId) {
-        const response = await db.query("SELECT * FROM results WHERE student_id = $1", [studentId])
-        if (response.rows.length < 1) {
+        const response = await db.query("SELECT o.score, c.challenge_name, s.name FROM outcome as o JOIN student as s ON o.student_id = s.id JOIN challenge as c ON o.challenge_id = c.id WHERE s.id = $1;", [studentId])
+        if (response.rows.length != 1) {
             throw new Error("Unable to locate results for this student.")
         }
-        return response.rows.map(result => new Results(result))
+        return new Outcome(response.rows[0])
     }
+
+    static async getAverageScoreByStudentId() {}
+
+    static async getAverageScoreBySubjectIdByStudentId() {}
 }
+
