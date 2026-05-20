@@ -11,19 +11,9 @@ async function index(req, res) {
 
 async function show(req, res) {
   try {
-    const id = parseInt(req.params.id);
-    const game = await Game.getOneById(id);
+    const challenge_id = parseInt(req.params.id);
+    const game = await Game.getAllByChallengeId(challenge_id);
     res.status(200).send({ data: game });
-  } catch (err) {
-    res.status(404).send({ error: err.message });
-  }
-}
-
-async function showQuestions(req, res) {
-  try {
-    const id = parseInt(req.params.id);
-    const questions = await Game.getQuestionsByChallengeId(id);
-    res.status(200).send({ data: questions });
   } catch (err) {
     res.status(404).send({ error: err.message });
   }
@@ -32,5 +22,4 @@ async function showQuestions(req, res) {
 module.exports = {
   index,
   show,
-  showQuestions,
 };
