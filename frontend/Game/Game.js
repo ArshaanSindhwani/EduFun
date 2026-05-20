@@ -52,12 +52,57 @@ async function loadChallenge(challengeId) {
         const game = await response.json();
     
         game.forEach(p => {
+            // once here
             if (p[3] === 1) {
-
+                let num = p[1]
+                let num2 = p[5]
+                (q+num).textContent=`${p[2]}`
+                (image+num).textContent=`${p[3]}`
+                (a+num+num2).textContent=`${p[4]}`
+            } else 
+                // three times here 
+                {
+                let num = p[1]
+                let num2 = p[5]
+                (a+num+num2).textContent=`${p[4]}`
             }
         })
     } else {
+        alert("Game not Loading")
         window.location.assign("../Home/Home.html");
     }
 
 }
+
+const runningTotal
+
+document.getElementsByClassName("btn btn-primary").addEventListener("submit", saveAnswer())
+
+function saveAnswer()  {}
+
+document.getElementById("complete").addEventListener("click", async (e)=> {
+    e.preventDefault()
+
+    const options = {
+        method: "POST",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            studentId : id,
+            challengeId : challengeId,
+            score: runningTotal
+        })
+    }
+
+    await fetch(`"http://localhost:3000/game/${id}`, options)
+    const data = await response.json();
+
+    if (response.status == 200) {
+        alert("Score Recieved!")
+        window.location.assign("../Home/Home.html");
+      } else {
+        alert(data.error);
+      }
+})

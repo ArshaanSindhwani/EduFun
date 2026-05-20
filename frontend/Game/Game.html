@@ -27,7 +27,7 @@
                 <button type="button" class="btn btn-light rounded-pill h-80 w-100 mb-3" id="scores-nav">My Scores</button>
             </div>
 
-            <!-- Results Page Content-->
+            <!-- Game Page Content-->
             <div class="col-10">
 
                 <!-- Top Logo banner and back button-->
@@ -36,7 +36,8 @@
                     <button type="button" class="btn btn-light rounded-pill px-4" id="back-nav">Back</button>
                 </div>
                 <!-- Game Questions section-->
-                <form class="row" style="text-align: center;" id="challenge">
+                <div class="row" style="text-align: center;" id="challenge">
+                    <!-- Progress Bar -->
                     <div class ="col-2 order-5 d-flex flex-column">
                         <div class=" w-75 h-100 bg-primary-subtle rounded-5 p-3 m-auto flex-fill">
                             <div style="transform: rotate(90deg);" class="progress" role="progressbar" aria-label="Info striped example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" >
@@ -45,6 +46,8 @@
                         </div>
                     </div>
                     <div class="col-10 order-1">
+
+                        <!-- Scenario 1 -->
                         <div class="bg-primary-subtle rounded-5 p-3 mx-5 my-2">
                             <h1 id="image-1">Test</h1>
                         </div>
@@ -53,7 +56,7 @@
                             <h1 id="q-1">Test</h1>
                         </div>
 
-                        <div class="mx-5 my-2">
+                        <form id="scenario-1" class="mx-5 my-2">
                             <div class="row">
 
                                 <div class="col-3 p-3">
@@ -84,12 +87,14 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            
+                            <div class="mx-5 my-2">
+                                <button id="submit-1" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        
+                        </form>
 
-                        <div class="mx-5 my-2">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-
+                        <!-- Scenario 2 -->
                         <div class="bg-primary-subtle rounded-5 p-3 mx-5 my-2">
                             <h1 id="image-2">Test</h1>
                         </div>
@@ -98,7 +103,7 @@
                             <h1 id="q-2">Test</h1>
                         </div>
 
-                        <div class="mx-5 my-2">
+                        <form id="scenario-2" class="mx-5 my-2">
                             <div class="row">
 
                                 <div class="col-3 p-3">
@@ -129,11 +134,14 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="mx-5 my-2">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+                            <div class="mx-5 my-2">
+                                <button id="submit-2" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+
+                        </form>
+
+                        <!-- Scenario 3 -->
 
                         <div class="bg-primary-subtle rounded-5 p-3 mx-5 my-2">
                             <h1 id="image-3">Test</h1>
@@ -142,7 +150,7 @@
                         <div class="bg-primary-subtle rounded-5 p-3 mx-5 my-2">
                             <h1 id="q-3">Test</h1>
                         </div>
-                        <div class="mx-5 my-2">
+                        <form id="scenario-3" class="mx-5 my-2">
                             <div class="row">
 
                                 <div class="col-3 p-3">
@@ -173,11 +181,14 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="mx-5 my-2">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+                            <div class="mx-5 my-2">
+                                <button id="submit-3" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+
+                        </form>
+
+                        <!-- Scenario 4 -->
 
                         <div class="bg-primary-subtle rounded-5 p-3 mx-5 my-2">
                             <h1 id="image-4">Test</h1>
@@ -187,7 +198,7 @@
                             <h1 id="q-4">Test</h1>
                         </div>
 
-                        <div class="mx-5 my-2">
+                        <form id="scenario-4" class="mx-5 my-2">
                             <div class="row">
 
                                 <div class="col-3 p-3">
@@ -217,13 +228,15 @@
                                         <input class="form-check-input" type="radio" name="q-4" id="a-4-4">
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
 
-                        <div class="mx-5 my-2">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+                            <div class="mx-5 my-2">
+                                <button id="submit-4" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+
+                        </form>
+
+                        <!-- Scenario 5 -->
 
                         <div class="bg-primary-subtle rounded-5 p-3 mx-5 my-2">
                             <h1 id="image-5">Test</h1>
@@ -233,7 +246,7 @@
                             <h1 id="q-5">Test</h1>
                         </div>
 
-                        <div class="mx-5 my-2">
+                        <form id="scenario-5" class="mx-5 my-2">
                             <div class="row justify-content-between">
 
                                 <div class="col-3 p-3">
@@ -263,19 +276,20 @@
                                         <input class="form-check-input" type="radio" name="q-5" id="a-5-4">
                                     </div>
                                 </div>
-
                             </div>
-                        </div>
-                        <div class></div>
-                        <div class="mx-5 my-2">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
+
+                            <div class="mx-5 my-2">
+                                <button id="submit-5" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+
+                        </form>
+
                     </div>
 
-                </form>
+                </div>
                 
                 <div class="position-relative">
-                    <button type="submit" class="btn btn-primary m-5 position-absolute top-0 end-0">Finish</button>
+                    <button id="complete" type="submit" class="btn btn-light m-5 position-absolute top-0 end-0">Finish</button>
                 </div>
             </div>
         </div>
