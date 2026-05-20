@@ -64,7 +64,7 @@ describe("Game controller", () => {
       const testGame = [
         {
           questions_text: "Which department will you focus on",
-          image_url: "/assets/image1.png",
+          image_url: null,
           question_number: 1,
           answers_id: 1,
           answer_text: "RAF",
@@ -73,7 +73,7 @@ describe("Game controller", () => {
         },
         {
           questions_text: "Which department will you focus on",
-          image_url: "/assets/image1.png",
+          image_url: null,
           question_number: 1,
           answers_id: 2,
           answer_text: "Navy",
