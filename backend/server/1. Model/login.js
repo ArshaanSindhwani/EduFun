@@ -18,7 +18,7 @@ class Login {
     }
 
     static async getOneByUsername(username) {
-        const response = await db.query("SELECT * FROM student WHERE username = $1", [username])
+        const response = await db.query("SELECT * FROM student WHERE username = $1;", [username])
         if (response.rows.length != 1) {
             throw new Error("Unable to locate user.")
         }
@@ -32,7 +32,7 @@ class Login {
             throw new Error("Missing required fields.")
         }
 
-        const response = await db.query("INSERT INTO student (username, password, name, form) VALUES ($1, $2, $3, $4) RETURNING *", [username, password, name, form])
+        const response = await db.query("INSERT INTO student (username, password, name, form) VALUES ($1, $2, $3, $4) RETURNING *;", [username, password, name, form])
         const newId = response.rows[0].id
         const newUser = await Login.getOneById(newId)
         
