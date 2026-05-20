@@ -53,18 +53,18 @@ async function loadChallenge(challengeId) {
     
         game.forEach(p => {
             // once here
-            if (p[3] === 1) {
-                let num = p[1]
-                let num2 = p[5]
-                (q+num).textContent=`${p[2]}`
-                (image+num).textContent=`${p[3]}`
-                (a+num+num2).textContent=`${p[4]}`
+            if (p["answer_option"] === "A") {
+                let num = p["question_number"]
+                let num2 = p["answer_option"]
+                (q+num).textContent=`${p["questions_text"]}`
+                (image+num).textContent=`${p["Image_url"]}`
+                (a+num+num2).textContent=`${p["answer_text"]}`
             } else 
                 // three times here 
                 {
-                let num = p[1]
-                let num2 = p[5]
-                (a+num+num2).textContent=`${p[4]}`
+                let num = p["question_number"]
+                let num2 = p["answer_option"]
+                (a+num+num2).textContent=`${p["answer_text"]}`
             }
         })
     } else {
@@ -100,7 +100,7 @@ document.getElementById("complete").addEventListener("click", async (e)=> {
     const data = await response.json();
 
     if (response.status == 200) {
-        alert("Score Recieved!")
+        alert("Score Received!")
         window.location.assign("../Home/Home.html");
       } else {
         alert(data.error);
