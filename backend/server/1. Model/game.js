@@ -1,8 +1,8 @@
 const db = require("../DB/connect")
 
 class Game {
-    constructor({ id, challenge_name, subject_id }){
-        this.id = id
+    constructor({ challenge_id, challenge_name, subject_id }){
+        this.id = challenge_id
         this.challenge_name = challenge_name
         this.subject_id = subject_id
     }
