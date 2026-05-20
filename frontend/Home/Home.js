@@ -19,6 +19,18 @@ document.getElementById("game-1").addEventListener("click", () => {
     window.location.assign("../Game/Game.html");
 });
 
+document.getElementById("game-2").addEventListener("click", () => {
+    alert("This game is under development!");
+});
+
+document.getElementById("game-3").addEventListener("click", () => {
+    alert("This game is under development!");
+});
+
+document.getElementById("game-4").addEventListener("click", () => {
+    alert("This game is under development!");
+});
+
 document.getElementById("logout-nav").addEventListener("click", () => {
     window.location.assign("../Login/login.html");
 });
