@@ -6,7 +6,7 @@ describe("Outcome", () => {
 
     afterAll(() => jest.resetAllMocks())
 
-    xdescribe("getAllByStudentId", () => {
+    describe("getAllByStudentId", () => {
         it("should return an array of results when given a valid student id", async () => {
             const testResults = 
             { id: 1,
@@ -34,7 +34,7 @@ describe("Outcome", () => {
         })
     })
 
-    xdescribe("getAverageScoreByStudentId", () => {
+    describe("getAverageScoreByStudentId", () => {
         it("should return an average score for a given student id", async () => {
             const studentAverage = 
             { average_score: 80 }
@@ -55,10 +55,32 @@ describe("Outcome", () => {
 
     describe("getAverageScoreBySubjectIdByStudentId", () => {
         it("should return an average score for a given student and subject", async () => {
-            const testAverage = { subject_id: 1, average_score: 75 }
+            const testAverage = { subject_name: "History", average_score: 75 }
             jest.spyOn(db, "query").mockResolvedValueOnce({ rows: [testAverage] })
 
-            const 
+            const result = await Outcome.getAverageScoreBySubjectIdByStudentId(1, 1)
+
+            expect(result).toEqual(testAverage)
+            expect(db.query).toHaveBeenCalledWith(
+                `SELECT sub.subject_name, AVG(o.score) AS average_score 
+            FROM outcome AS o 
+            JOIN student AS s 
+            ON o.student_id = s.id 
+            JOIN challenge AS c 
+            ON o.challenge_id = c.id 
+            JOIN subject AS sub 
+            ON c.subject_id = sub.id 
+            WHERE s.id = $1 AND sub.id = $2 
+            GROUP BY s.name, sub.subject_name;`,
+            [1, 1]
+        )
+        })
+
+        it("should throw an error when given an invalid student or subject id", async () => {
+            jest.spyOn(db, "query").mockResolvedValueOnce({ rows: [] })
+
+             await expect(Outcome.getAverageScoreBySubjectIdByStudentId(999, 999)).rejects.toThrow("Unable to locate results for this student and subject.")
         })
     })
+
 })
