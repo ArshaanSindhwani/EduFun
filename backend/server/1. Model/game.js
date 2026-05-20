@@ -15,27 +15,20 @@ class Game {
         return response.rows.map(game => new Game(game))
     }
 
-    static async getOneById(id) {
-        try {
-        const response = await db.query("SELECT * FROM challenge WHERE id = $1;", [id])
-        const game = new Game(response.rows[0])
-        return game
-        } catch (error) {
-            throw new Error("Unable to locate the game.")
-        }
-    }
-
-    static async getQuestionsByChallengeId(challengeId) {
-        const response = await db.query(`
-            SELECT q.questions_text
-            FROM questions as q 
-            JOIN challenge as c 
-            ON q.challenge_id = c.id 
-            WHERE c.id = $1`, [challengeId])
-        if (response.rows.length === 0) {
-            throw new Error("Unable to locate any questions for this game.")
-        }
-        return response.rows[0]
+    static async getAllByChallengeId(challenge_id) {
+        const response = await db.query(
+            `SELECT q.questions_text, q.image_url, q.question_number, a.answers_id, a.answer_text, a.answer_option, s.score_value
+            FROM questions AS q
+            JOIN answers AS a 
+            ON q.questions_id = a.question_id
+            JOIN score AS s 
+            ON a.score_id = s.score_id
+            WHERE q.challenge_id = $1
+            ORDER BY q.question_number, a.answer_option;`, [challenge_id])
+            if (response.rows.length === 0) {
+                throw new Error("Unable to locate the game.")
+            }
+            return response.rows[0]
     }
 }
 

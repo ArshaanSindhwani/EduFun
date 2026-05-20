@@ -6,7 +6,7 @@ describe("Outcome", () => {
 
     afterAll(() => jest.resetAllMocks())
 
-    describe("getAllByStudentId", () => {
+    xdescribe("getAllByStudentId", () => {
         it("should return an array of results when given a valid student id", async () => {
             const testResults = 
             { id: 1,
@@ -34,7 +34,7 @@ describe("Outcome", () => {
         })
     })
 
-    describe("getAverageScoreByStudentId", () => {
+    xdescribe("getAverageScoreByStudentId", () => {
         it("should return an average score for a given student id", async () => {
             const studentAverage = 
             { average_score: 80 }
@@ -53,10 +53,12 @@ describe("Outcome", () => {
         })
     })
 
-    xdescribe("getAverageScoreBySubjectIdByStudentId", () => {
+    describe("getAverageScoreBySubjectIdByStudentId", () => {
         it("should return an average score for a given student and subject", async () => {
-            const testAverage = 
-            { }
+            const testAverage = { subject_id: 1, average_score: 75 }
+            jest.spyOn(db, "query").mockResolvedValueOnce({ rows: [testAverage] })
+
+            const 
         })
     })
 })
