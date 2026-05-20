@@ -33,7 +33,7 @@ const challengeId = localStorage.getItem("challengeId")
 // const a53 = document.getElementById("a-5-3")
 // const a54 = document.getElementById("a-5-4")
 
-loadChallenge(challengeId)
+loadChallenge(1)
 
 async function loadChallenge(challengeId) {
     const options = {
@@ -47,9 +47,11 @@ async function loadChallenge(challengeId) {
       };
       
     const response = await fetch(`http://localhost:3000/game/${challengeId}`, options);
+    console.log(response);
 
     if (response.status == 200) {
-        const game = await response.json();
+        const game = await response.json()
+         console.log(game);;
     
         game.forEach(p => {
             // once here
@@ -71,8 +73,8 @@ async function loadChallenge(challengeId) {
         alert("Game not Loading")
         window.location.assign("../Home/Home.html");
     }
-
 }
+
 
 const runningTotal
 
