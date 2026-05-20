@@ -15,7 +15,8 @@ document.getElementById("scores-nav").addEventListener("click", () => {
 })
 
 document.getElementById("game-1").addEventListener("click", () => {
-    localStorage.setItem("challengeId, 1");
+    console.log("here");
+    localStorage.setItem("challengeId","1");
     window.location.assign("../Game/Game.html");
 });
 
