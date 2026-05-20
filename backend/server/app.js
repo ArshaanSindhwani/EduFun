@@ -3,6 +3,7 @@ const cors = require("cors")
 const logger = require("morgan")
 
 const loginRouter = require("./3. Routers/LOGIN")
+const resultsRouter = require("./3. Routers/RESULTS")
 
 const app = express()
 
@@ -19,5 +20,8 @@ app.get("/", (req, res) => {
     description: "EduFun API"
   })
 })
+
+app.use("/login", loginRouter)
+app.use("/results", resultsRouter)
 
 module.exports = app
