@@ -4,6 +4,9 @@
   "description": "An application created to make learning more memorable and fun!",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon -L ./server/index.js",
+    "start": "node ./server/index.js",
+    "setup-db": "node ./server/DB/setup.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -16,6 +19,15 @@
   "type": "commonjs",
   "bugs": {
     "url": "https://github.com/beata-dan/EduFun/issues"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pg": "^8.20.0"
   },
   "homepage": "https://github.com/beata-dan/EduFun#readme"
 }
