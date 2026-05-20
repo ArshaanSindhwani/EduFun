@@ -6,6 +6,5 @@ const gameRouter = Router();
 
 gameRouter.get("/", gameController.index);
 gameRouter.get("/:id", gameController.show);
-gameRouter.get("/:id/questions", gameController.showQuestions);
 
 module.exports = gameRouter;
