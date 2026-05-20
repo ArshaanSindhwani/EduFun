@@ -87,7 +87,7 @@ CREATE TABLE answers (
     answer_text VARCHAR(500) NOT NULL,
     score_id INT NOT NULL,
     questions_id INT NOT NULL,
-    answer_option VARCHAR(1) NOT NULL,
+    answer_option INT NOT NULL,
     PRIMARY KEY (answers_id),
     FOREIGN KEY (score_id) REFERENCES score(score_id),
     FOREIGN KEY (questions_id) REFERENCES questions(questions_id)
@@ -111,34 +111,34 @@ VALUES
 INSERT INTO answers (questions_id, answer_option, answer_text, score_id)
 VALUES
 -- Question 1 
-(1, 'A', 'RAF', 1),
-(1, 'B', 'NAVY', 2),
-(1, 'C', 'ARMY', 2),
-(1, 'D', 'MI5', 3),
+(1, '1', 'RAF', 1),
+(1, '2', 'NAVY', 2),
+(1, '3', 'ARMY', 2),
+(1, '4', 'MI5', 3),
 
 -- Question 2
-(2, 'A', 'India', 2),
-(2, 'B', 'North Africa', 1),
-(2, 'C', 'Burma', 3),
-(2, 'D', 'Pacific Islands', 2),
+(2, '1', 'India', 2),
+(2, '2', 'North Africa', 1),
+(2, '3', 'Burma', 3),
+(2, '4', 'Pacific Islands', 2),
 
 --  Question 3
-(3, 'A', 'RAF', 2),
-(3, 'B', 'NAVY', 3),
-(3, 'C', 'ARMY', 1),
-(3, 'D', 'MI5', 2),
+(3, '1', 'RAF', 2),
+(3, '2', 'NAVY', 3),
+(3, '3', 'ARMY', 1),
+(3, '4', 'MI5', 2),
 
 -- Question 4
-(4, 'A', 'France', 1),
-(4, 'B', 'Italy', 1),
-(4, 'C', 'Netherlands', 2),
-(4, 'D', 'Norway', 3),
+(4, '1', 'France', 1),
+(4, '2', 'Italy', 1),
+(4, '3', 'Netherlands', 2),
+(4, '4', 'Norway', 3),
 
 -- Question 5
-(5, 'A', '100%', 1),
-(5, 'B', '75%', 2),
-(5, 'C', '50%', 2),
-(5, 'D', '25%', 3);
+(5, '1', '100%', 1),
+(5, '2', '75%', 2),
+(5, '3', '50%', 2),
+(5, '4', '25%', 3);
 
 INSERT INTO teacher (teacher_name, username, subject_id, head, password)
 VALUES
