@@ -20,7 +20,7 @@ class Game {
             `SELECT q.questions_text, q.image_url, q.question_number, a.answers_id, a.answer_text, a.answer_option, s.score_value
             FROM questions AS q
             JOIN answers AS a 
-            ON q.questions_id = a.question_id
+            ON q.questions_id = a.questions_id
             JOIN score AS s 
             ON a.score_id = s.score_id
             WHERE q.challenge_id = $1
@@ -28,7 +28,7 @@ class Game {
             if (response.rows.length === 0) {
                 throw new Error("Unable to locate the game.")
             }
-            return response.rows[0]
+            return response.rows
     }
 }
 
