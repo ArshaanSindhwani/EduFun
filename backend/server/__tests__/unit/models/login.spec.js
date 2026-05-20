@@ -27,7 +27,7 @@ describe("Login", () => {
             expect(result.username).toBe(testUser.username)
             expect(result.form).toBe(testUser.form)
             expect(result.password).toBe(testUser.password) 
-            expect(db.query).toHaveBeenCalledWith("SELECT * FROM student WHERE id = $1", [1])
+            expect(db.query).toHaveBeenCalledWith("SELECT * FROM student WHERE id = $1;", [1])
         })
 
         it("should throw an error when given an invalid id", async () => {
@@ -39,18 +39,18 @@ describe("Login", () => {
     })
 
     describe("getOneByUsername", () => {
-        it("should return a user when given a valid username", async () => {
+        it("should return a name when given a valid username", async () => {
             // Arrange
             const testUser = 
             { id: 1,
               name: "user",
               username: "user1",
               form: "7a",
-              password: "password123" }
+              password: "password123" };
             jest.spyOn(db, "query").mockResolvedValueOnce({ rows: [testUser] })
             
             // Act
-            const result = await Login.getOneById(1)
+            const result = await Login.getOneByUsername(testUser.username)
 
             // Assert
             expect(result).toBeInstanceOf(Login)
@@ -59,14 +59,14 @@ describe("Login", () => {
             expect(result.username).toBe(testUser.username)
             expect(result.form).toBe(testUser.form)
             expect(result.password).toBe(testUser.password) 
-            expect(db.query).toHaveBeenCalledWith("SELECT * FROM student WHERE id = $1", [1])
+            expect(db.query).toHaveBeenCalledWith("SELECT * FROM student WHERE username = $1;", ["user1"])
         })
 
         it("should throw an error when given an invalid id", async () => {
             // Arrange 
             jest.spyOn(db, "query").mockResolvedValueOnce({ rows: [] })
 
-            await expect(Login.getOneById(999)).rejects.toThrow("Unable to locate user.")
+            await expect(Login.getOneByUsername(999)).rejects.toThrow("Unable to locate user.")
         })    
     })
 
@@ -85,7 +85,7 @@ describe("Login", () => {
             expect(result).toHaveProperty("password", "newpassword")
             expect(result).toHaveProperty("name", "New User")
             expect(result).toHaveProperty("form", "7b")
-            expect(db.query).toHaveBeenCalledWith("INSERT INTO student (username, password, name, form) VALUES ($1, $2, $3, $4) RETURNING *", [newUserData.username, newUserData.password, newUserData.name, newUserData.form])
+            expect(db.query).toHaveBeenCalledWith("INSERT INTO student (username, password, name, form) VALUES ($1, $2, $3, $4) RETURNING *;", [newUserData.username, newUserData.password, newUserData.name, newUserData.form])
         })
 
         it("should throw an error when one of the values is missing", async () => {
