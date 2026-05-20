@@ -64,7 +64,7 @@ async function loadChallenge(challengeId) {
                 {
                 let num = p["question_number"]
                 let num2 = p["answer_option"]
-                (a+num+num2).textContent=`${p["answer_text"]}`
+                document.getElementById(`a-${num}-${num2}`).textContent=`${p["answer_text"]}`
             }
         })
     } else {
