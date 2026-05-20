@@ -15,7 +15,11 @@ class Game {
         return response.rows.map(game => new Game(game))
     }
 
-    static async getAllFromChallengeId // Go over the Google Doc to check what needs to be a function
+    static async getAllFromChallengeId() {
+        const response = await db.query("")
+    }
+    
+    // Go over the Google Doc to check what needs to be a function
 
 // questions_text, image_URL, answers_id, answers_text, score
 

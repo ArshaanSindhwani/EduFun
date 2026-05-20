@@ -18,75 +18,78 @@ CREATE TABLE student (
 );
 
 CREATE TABLE subject (
-    id INT GENERATED ALWAYS AS IDENTITY,
+    subject_id INT GENERATED ALWAYS AS IDENTITY,
     subject_name VARCHAR(100) NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (subject_id)
 );
 
 CREATE TABLE challenge (
-    id INT GENERATED ALWAYS AS IDENTITY,
+    challenge_id INT GENERATED ALWAYS AS IDENTITY,
     challenge_name VARCHAR(100) NOT NULL,
     subject_id INT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (subject_id) REFERENCES subject(id)
+    PRIMARY KEY (challenge_id),
+    FOREIGN KEY (subject_id) REFERENCES subject(subject_id)
 );
 
 CREATE TABLE score (
-    id INT GENERATED ALWAYS AS IDENTITY,
+    score_id INT GENERATED ALWAYS AS IDENTITY,
     score_text VARCHAR(50) NOT NULL,
     score_value INT NOT NULL,
-    PRIMARY KEY (id)
+    PRIMARY KEY (score_id)
 );
 
 CREATE TABLE outcome (
-    id INT GENERATED ALWAYS AS IDENTITY,
+    outcome_id INT GENERATED ALWAYS AS IDENTITY,
     challenge_id INT NOT NULL,
     student_id INT NOT NULL,
     score INT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (challenge_id) REFERENCES challenge(id),
+    PRIMARY KEY (outcome_id),
+    FOREIGN KEY (challenge_id) REFERENCES challenge(challenge_id),
     FOREIGN KEY (student_id) REFERENCES student(id)
 );
 
 CREATE TABLE teacher (
-    id INT GENERATED ALWAYS AS IDENTITY,
+    teacher_id INT GENERATED ALWAYS AS IDENTITY,
     teacher_name VARCHAR(100) NOT NULL,
     username VARCHAR(20) NOT NULL UNIQUE,
     subject_id INT NOT NULL,
     head BOOLEAN NOT NULL,
     password VARCHAR(30) NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (subject_id) REFERENCES subject(id)
+    PRIMARY KEY (teacher_id),
+    FOREIGN KEY (subject_id) REFERENCES subject(subject_id)
 );
 
 CREATE TABLE results (
-    id INT GENERATED ALWAYS AS IDENTITY,
+    results_id INT GENERATED ALWAYS AS IDENTITY,
     student_id INT NOT NULL,
     teacher_id INT NOT NULL,
     outcome_id INT NOT NULL,
     subject_id INT NOT NULL,
-    PRIMARY KEY (id),
+    PRIMARY KEY (results_id),
     FOREIGN KEY (student_id) REFERENCES student(id),
-    FOREIGN KEY (teacher_id) REFERENCES teacher(id),
-    FOREIGN KEY (outcome_id) REFERENCES outcome(id),
-    FOREIGN KEY (subject_id) REFERENCES subject(id)
+    FOREIGN KEY (teacher_id) REFERENCES teacher(teacher_id),
+    FOREIGN KEY (outcome_id) REFERENCES outcome(outcome_id),
+    FOREIGN KEY (subject_id) REFERENCES subject(subject_id)
 );
 
 CREATE TABLE questions (
-    id INT GENERATED ALWAYS AS IDENTITY,
+    questions_id INT GENERATED ALWAYS AS IDENTITY,
     challenge_id INT NOT NULL,
     questions_text VARCHAR(500) NOT NULL,
     image_url VARCHAR(200),
-    PRIMARY KEY (id),
-    FOREIGN KEY (challenge_id) REFERENCES challenge(id)
+    question_number INT NOT NULL,
+    PRIMARY KEY (questions_id),
+    FOREIGN KEY (challenge_id) REFERENCES challenge(challenge_id)
 );
 
 CREATE TABLE answers (
-    id INT GENERATED ALWAYS AS IDENTITY,
+    answers_id INT GENERATED ALWAYS AS IDENTITY,
     answers_text VARCHAR(500) NOT NULL,
     score_id INT NOT NULL,
-    question_id INT NOT NULL,
-    PRIMARY KEY (id),
-    FOREIGN KEY (score_id) REFERENCES score(id)
+    questions_id INT NOT NULL,
+    answer_option VARCHAR(1) NOT NULL,
+    PRIMARY KEY (answers_id),
+    FOREIGN KEY (score_id) REFERENCES score(score_id),
+    FOREIGN KEY (questions_id) REFERENCES questions(questions_id)
 );
 
