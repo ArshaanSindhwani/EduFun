@@ -84,7 +84,7 @@ CREATE TABLE questions (
 
 CREATE TABLE answers (
     answers_id INT GENERATED ALWAYS AS IDENTITY,
-    answers_text VARCHAR(500) NOT NULL,
+    answer_text VARCHAR(500) NOT NULL,
     score_id INT NOT NULL,
     questions_id INT NOT NULL,
     answer_option VARCHAR(1) NOT NULL,
