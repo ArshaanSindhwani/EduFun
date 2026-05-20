@@ -1,3 +1,7 @@
+const userName = localStorage.getItem("username");
+document.getElementById("user-name").textContent = userName;
+
+
 document.getElementById("user-nav").addEventListener("click", () => {
     window.location.assign()
 })
@@ -17,3 +21,4 @@ document.getElementById("game-1").addEventListener("click", () => {
 document.getElementById("logout-nav").addEventListener("click", () => {
     window.location.assign("../Login/login.html");
 });
+
