@@ -1,6 +1,8 @@
 const id = localStorage.getItem("id");
 const challengeId = localStorage.getItem("challengeId");
- 
+
+const userChoices = {};
+
 // ---- Sidebar navigation ----
 document.getElementById("user-nav").addEventListener("click", () => {
     window.location.assign("#"); // placeholder
@@ -35,6 +37,8 @@ async function loadChallenge(challengeId) {
     const rows = json.data;
  
     populateChallenges(rows);
+    attachAnswerListeners();
+    attachFinishListener();
 }
  
 function populateChallenges(rows) {
@@ -53,5 +57,46 @@ function populateChallenges(rows) {
         if (radio) {
             radio.dataset.score = row.score_value;
         }
+    });
+}
+
+// Listen for radio changes in all 5 scenarios and update the progress bar
+function attachAnswerListeners() {
+    for (let qNum = 1; qNum <= 5; qNum++) {
+        const radios = document.querySelectorAll(`input[name="q-${qNum}"]`);
+        radios.forEach(radio => {
+            radio.addEventListener("change", () => {
+                userChoices[qNum] = parseInt(radio.dataset.score);
+                updateProgressBar();
+            });
+        });
+    }
+}
+ 
+// Sum all current choices and update the side progress bar
+function updateProgressBar() {
+    const total = Object.values(userChoices).reduce((sum, val) => sum + val, 0);
+    const bar = document.querySelector("#challenge .progress-bar");
+    bar.style.width = `${total}%`;
+    bar.textContent = `${total}%`;
+    bar.setAttribute("aria-valuenow", total);
+}
+
+// Save the final score to localStorage and go to Results
+function attachFinishListener() {
+    document.getElementById("complete").addEventListener("click", (e) => {
+        e.preventDefault();
+ 
+        if (Object.keys(userChoices).length < 5) {
+            alert("Please answer all 5 questions before finishing.");
+            return;
+        }
+ 
+        const finalScore = Object.values(userChoices).reduce((sum, val) => sum + val, 0);
+ 
+        // Save the score so the Results page can read it
+        localStorage.setItem("ww2Score", finalScore);
+ 
+        window.location.assign("../Results/Results.html");
     });
 }
