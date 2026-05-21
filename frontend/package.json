@@ -19,7 +19,7 @@
   },
   "jest": {
     "testPathIgnorePatterns": [
-      "__tests__/helpers.js"
+      "__tests__/DOM test/helpers.js"
     ]
   }
 }
