@@ -102,18 +102,18 @@ INSERT INTO challenge (challenge_name, subject_id) VALUES ('WW2', 1), ('Romans',
 
 INSERT INTO questions (challenge_id, question_number, questions_text, image_url) 
 VALUES
-(1,1, 'Which department will you focus on', '../Assets/image1.png'),
-(1,2, 'Who will you help', '../Assets/image2.png'),
-(1,3, 'Which department will you focus on', '../Assets/image3.png'),
+(1,1, 'Which branch of the Military recieves your support?', '../Assets/image1.png'),
+(1,2, 'Focus on which theatre?', '../Assets/image2.png'),
+(1,3, 'Send them to which branch?', '../Assets/image3.png'),
 (1,4, 'Where will you focus your troops', '../Assets/image4.png'),
-(1,5, 'How much of your troops will you use for the final charge', '../Assets/image5.png');
+(1,5, 'How many of those Troops do you Redeploy?', '../Assets/image5.png');
 
 INSERT INTO answers (questions_id, answer_option, answer_text, score_id)
 VALUES
 -- Question 1 
 (1, 1, 'RAF', 1),
-(1, 2, 'NAVY', 2),
-(1, 3, 'ARMY', 2),
+(1, 2, 'Navy', 2),
+(1, 3, 'Army', 2),
 (1, 4, 'MI5', 3),
 
 -- Question 2
@@ -124,8 +124,8 @@ VALUES
 
 --  Question 3
 (3, 1, 'RAF', 2),
-(3, 2, 'NAVY', 3),
-(3, 3, 'ARMY', 1),
+(3, 2, 'Navy', 3),
+(3, 3, 'Army', 1),
 (3, 4, 'MI5', 2),
 
 -- Question 4
@@ -135,9 +135,9 @@ VALUES
 (4, 4, 'Norway', 3),
 
 -- Question 5
-(5, 1, '100%', 1),
+(5, 1, '100%', 3),
 (5, 2, '75%', 2),
-(5, 3, '50%', 2),
+(5, 3, '50%', 1),
 (5, 4, '25%', 3);
 
 INSERT INTO teacher (teacher_name, username, subject_id, head, password)
