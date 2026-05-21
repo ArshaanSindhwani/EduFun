@@ -1,6 +1,3 @@
-const dotenv = require("dotenv")
-const api = process.dotenv.API_URL
-
 document.getElementById("register-form").addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -22,7 +19,7 @@ document.getElementById("register-form").addEventListener("submit", async (e) =>
     } 
     console.log(options)
 
-    const response = await fetch(`${api}login/register`, options);
+    const response = await fetch("http://localhost:3000/login/register", options);
     const data = await response.json();
 
     if (response.status == 201) {
