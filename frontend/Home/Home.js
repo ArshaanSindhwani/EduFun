@@ -20,7 +20,8 @@ document.getElementById("game-1").addEventListener("click", () => {
 });
 
 document.getElementById("game-2").addEventListener("click", () => {
-    alert("This game is under development!");
+    localStorage.setItem("challengeId", "2");
+    window.location.assign("../Game/Game.html");
 });
 
 document.getElementById("game-3").addEventListener("click", () => {
