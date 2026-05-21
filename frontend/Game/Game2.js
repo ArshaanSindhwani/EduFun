@@ -95,7 +95,7 @@ function attachFinishListener() {
         const finalScore = Object.values(userChoices).reduce((sum, val) => sum + val, 0);
  
         // Save the score so the Results page can read it
-        localStorage.setItem("ww2Score", finalScore);
+        localStorage.setItem(`challenge${challengeId}Score`, finalScore);
  
         window.location.assign("../Results/Results.html");
     });
