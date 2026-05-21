@@ -102,11 +102,11 @@ INSERT INTO challenge (challenge_name, subject_id) VALUES ('WW2', 1), ('Romans',
 
 INSERT INTO questions (challenge_id, question_number, questions_text, image_url) 
 VALUES
-(1,1, 'Which department will you focus on', '/Assets/image1.png'),
-(1,2, 'Who will you help', '/assest/image2.png'),
-(1,3, 'Which department will you focus on', '/assest/image3.png'),
-(1,4, 'Where will you focus your troops', '/assest/image4.png'),
-(1,5, 'How much of your troops will you use for the final charge', '/assest/image5.png');
+(1,1, 'Which department will you focus on', '../Assets/image1.png'),
+(1,2, 'Who will you help', '../Assets/image2.png'),
+(1,3, 'Which department will you focus on', '../Assest/image3.png'),
+(1,4, 'Where will you focus your troops', '../Assest/image4.png'),
+(1,5, 'How much of your troops will you use for the final charge', '../Assest/image5.png');
 
 INSERT INTO answers (questions_id, answer_option, answer_text, score_id)
 VALUES
