@@ -1,3 +1,6 @@
+const dotenv = require("dotenv")
+const api = process.dotenv.API_URL
+
 const id = localStorage.getItem("id");
 const challengeId = localStorage.getItem("challengeId");
 
@@ -27,7 +30,7 @@ async function loadChallenge(challengeId) {
         }
     };
  
-    const response = await fetch(`http://localhost:3000/game/${challengeId}`, options);
+    const response = await fetch(`${api}game/${challengeId}`, options);
  
     if (response.status !== 200) {
         alert("Game is not loading");

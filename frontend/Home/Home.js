@@ -1,7 +1,6 @@
 // const userName = localStorage.getItem("username");
 // document.getElementById("user-name").textContent = userName;
 
-
 document.getElementById("user-nav").addEventListener("click", () => {
     window.location.assign()
 })

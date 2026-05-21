@@ -1,3 +1,6 @@
+const dotenv = require("dotenv")
+const api = process.dotenv.API_URL
+
 document.getElementById("login-form").addEventListener("submit", async (e) => {
     e.preventDefault();
 
@@ -15,7 +18,7 @@ document.getElementById("login-form").addEventListener("submit", async (e) => {
         })
     }
 
-    const response = await fetch("http://localhost:3000/login/login", options);
+    const response = await fetch(`${api}login/login`, options);
     const data = await response.json();
     console.log(data);
 
