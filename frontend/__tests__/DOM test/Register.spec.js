@@ -6,14 +6,8 @@ let document;
 describe('Register.html', () => {
         
     beforeEach(async () => {
-        dom = await renderDOM('./Register.html');
+        dom = await renderDOM('./Register/Register.html');
         document = await dom.window.document;
-  })
-
-    it('has a button', () => {
-        const btn = document.querySelector('button')
-        expect(btn).toBeTruthy
-        expect(btn.innerHTML).toBe("Register Here")
   })
 
     it('has a form', () => {
@@ -21,4 +15,10 @@ describe('Register.html', () => {
         expect(form).toBeTruthy
     })
 
+        it('has a button to navigate to Login', () => {
+        const navButton = document.getElementById('login-nav')
+        expect(navButton).toBeTruthy
+        expect(navButton.innerHTML).toBe("Login Here")
+    })
 })
+
