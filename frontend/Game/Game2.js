@@ -77,7 +77,7 @@ function attachAnswerListeners() {
 function updateProgressBar() {
     const total = Object.values(userChoices).reduce((sum, val) => sum + val, 0);
     const bar = document.querySelector("#challenge .progress-bar");
-    bar.style.width = `${total}%`;
+    bar.style.height = `${total}%`;
     bar.textContent = `${total}%`;
     bar.setAttribute("aria-valuenow", total);
 }
