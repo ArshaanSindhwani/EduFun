@@ -47,7 +47,7 @@ function populateChallenges(rows) {
         const aNum = row.answer_option;
  
         // Set question text and image
-        document.getElementById(`q-${qNum}`).textContent = row.questions_text;
+        document.getElementById(`q-${qNum}`).textContent = row.questions_text+"?";
         document.getElementById(`image-${qNum}`).src = row.image_url;
         document.getElementById(`a-${qNum}-${aNum}`).textContent = row.answer_text;
  

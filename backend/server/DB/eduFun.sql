@@ -112,8 +112,8 @@ INSERT INTO answers (questions_id, answer_option, answer_text, score_id)
 VALUES
 -- Question 1 
 (1, 1, 'RAF', 1),
-(1, 2, 'NAVY', 2),
-(1, 3, 'ARMY', 2),
+(1, 2, 'Navy', 2),
+(1, 3, 'Army', 2),
 (1, 4, 'MI5', 3),
 
 -- Question 2
@@ -124,8 +124,8 @@ VALUES
 
 --  Question 3
 (3, 1, 'RAF', 2),
-(3, 2, 'NAVY', 3),
-(3, 3, 'ARMY', 1),
+(3, 2, 'Navy', 3),
+(3, 3, 'Army', 1),
 (3, 4, 'MI5', 2),
 
 -- Question 4
