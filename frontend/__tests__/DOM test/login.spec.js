@@ -21,7 +21,7 @@ describe('login.html', () => {
         expect(form).toBeTruthy
     })
 
-    it('has a button to navigate login', () => {
+    it('has a button to navigate to Register', () => {
         const navButton = document.getElementById('register-nav')
         expect(navButton).toBeTruthy
         expect(navButton.innerHTML).toBe("Register Here")
