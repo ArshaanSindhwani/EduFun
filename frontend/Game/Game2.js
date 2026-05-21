@@ -72,7 +72,7 @@ function attachAnswerListeners() {
         });
     }
 }
- 
+
 // Sum all current choices and update the side progress bar
 function updateProgressBar() {
     const total = Object.values(userChoices).reduce((sum, val) => sum + val, 0);
