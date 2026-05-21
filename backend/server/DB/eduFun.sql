@@ -102,7 +102,7 @@ INSERT INTO challenge (challenge_name, subject_id) VALUES ('WW2', 1), ('Romans',
 
 INSERT INTO questions (challenge_id, question_number, questions_text, image_url) 
 VALUES
-(1,1, 'Which department will you focus on', '/assest/image1.png'),
+(1,1, 'Which department will you focus on', '/Assets/image1.png'),
 (1,2, 'Who will you help', '/assest/image2.png'),
 (1,3, 'Which department will you focus on', '/assest/image3.png'),
 (1,4, 'Where will you focus your troops', '/assest/image4.png'),
@@ -111,34 +111,34 @@ VALUES
 INSERT INTO answers (questions_id, answer_option, answer_text, score_id)
 VALUES
 -- Question 1 
-(1, '1', 'RAF', 1),
-(1, '2', 'NAVY', 2),
-(1, '3', 'ARMY', 2),
-(1, '4', 'MI5', 3),
+(1, 1, 'RAF', 1),
+(1, 2, 'NAVY', 2),
+(1, 3, 'ARMY', 2),
+(1, 4, 'MI5', 3),
 
 -- Question 2
-(2, '1', 'India', 2),
-(2, '2', 'North Africa', 1),
-(2, '3', 'Burma', 3),
-(2, '4', 'Pacific Islands', 2),
+(2, 1, 'India', 2),
+(2, 2, 'North Africa', 1),
+(2, 3, 'Burma', 3),
+(2, 4, 'Pacific Islands', 2),
 
 --  Question 3
-(3, '1', 'RAF', 2),
-(3, '2', 'NAVY', 3),
-(3, '3', 'ARMY', 1),
-(3, '4', 'MI5', 2),
+(3, 1, 'RAF', 2),
+(3, 2, 'NAVY', 3),
+(3, 3, 'ARMY', 1),
+(3, 4, 'MI5', 2),
 
 -- Question 4
-(4, '1', 'France', 1),
-(4, '2', 'Italy', 1),
-(4, '3', 'Netherlands', 2),
-(4, '4', 'Norway', 3),
+(4, 1, 'France', 1),
+(4, 2, 'Italy', 1),
+(4, 3, 'Netherlands', 2),
+(4, 4, 'Norway', 3),
 
 -- Question 5
-(5, '1', '100%', 1),
-(5, '2', '75%', 2),
-(5, '3', '50%', 2),
-(5, '4', '25%', 3);
+(5, 1, '100%', 1),
+(5, 2, '75%', 2),
+(5, 3, '50%', 2),
+(5, 4, '25%', 3);
 
 INSERT INTO teacher (teacher_name, username, subject_id, head, password)
 VALUES
