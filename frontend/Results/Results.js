@@ -18,6 +18,7 @@ const options = {
 }
 
 const id = localStorage.getItem("id")
+const score = localStorage.getItem("ww2Score")
 
 async function loadScores (id) {
     const response = await fetch(`http://localhost:3000/results/student/${id}`, options)
@@ -32,7 +33,7 @@ async function loadScores (id) {
             container.appendChild(elem);
         })
     } else {
-        window.location.assign("./index.html");
+        window.location.assign("../Home/Home.html");
     }
 
 }
@@ -43,7 +44,8 @@ function createScoreElement (data) {
 
     const game = document.createElement("div");
     game.className ="card-header"
-    game.textContent = data["gameName"];
+    // game.textContent = "data["gameName"]";
+    game.textContent = "WW2";
     score.appendChild(game);
 
     const content = document.createElement("div");
@@ -57,7 +59,7 @@ function createScoreElement (data) {
 
     const contentBar = document.createElement("div")
     contentBar.className="progress-bar"
-    contentBar.style=`width:${data["score"]}%`
+    contentBar.style=`width:${score}%`
     score.appendChild(contentBar);
 
     return score;
