@@ -102,43 +102,72 @@ INSERT INTO challenge (challenge_name, subject_id) VALUES ('WW2', 1), ('Romans',
 
 INSERT INTO questions (challenge_id, question_number, questions_text, image_url) 
 VALUES
+-- Challenge 1
 (1,1, 'Which branch of the Military recieves your support?', '../Assets/image1.png'),
 (1,2, 'Focus on which theatre?', '../Assets/image2.png'),
 (1,3, 'Send them to which branch?', '../Assets/image3.png'),
 (1,4, 'Where will you focus your troops', '../Assets/image4.png'),
-(1,5, 'How many of those Troops do you Redeploy?', '../Assets/image5.png');
+(1,5, 'How many of those Troops do you Redeploy?', '../Assets/image5.png'),
+-- Challenge 2
+(2,1, 'Where will you build your new city?', '../Assets/romans1.png'),
+(2,2, 'What will you wear to battle?', '../Assets/romans2.png'),
+(2,3, 'How will you send your message?', '../Assets/romans3.png'),
+(2,4, 'How will you feed the city?', '../Assets/romans4.png'),
+(2,5, 'What will you organise for the people?', '../Assets/romans5.png');
 
 INSERT INTO answers (questions_id, answer_option, answer_text, score_id)
 VALUES
--- Question 1 
+-- Question 1 WW2
 (1, 1, 'RAF', 1),
 (1, 2, 'Navy', 2),
 (1, 3, 'Army', 2),
 (1, 4, 'MI5', 3),
 
--- Question 2
+-- Question 2 WW2
 (2, 1, 'India', 2),
 (2, 2, 'North Africa', 1),
 (2, 3, 'Burma', 3),
 (2, 4, 'Pacific Islands', 2),
 
---  Question 3
+--  Question 3 WW2
 (3, 1, 'RAF', 2),
 (3, 2, 'Navy', 3),
 (3, 3, 'Army', 1),
 (3, 4, 'MI5', 2),
 
--- Question 4
+-- Question 4 WW2
 (4, 1, 'France', 1),
 (4, 2, 'Italy', 1),
 (4, 3, 'Netherlands', 2),
 (4, 4, 'Norway', 3),
 
--- Question 5
+-- Question 5 WW2
 (5, 1, '100%', 3),
 (5, 2, '75%', 2),
 (5, 3, '50%', 1),
-(5, 4, '25%', 3);
+(5, 4, '25%', 3),
+
+-- Roman answers
+(6, '1', 'River and hills', 1),
+(6, '2', 'Flat field', 2),
+(6, '3', 'In a forest', 2),
+(6, '4', 'Snowy mountain', 3),
+(7, '1', 'Full armour', 1),
+(7, '2', 'Just helmet', 2),
+(7, '3', 'Just shield', 2),
+(7, '4', 'Pyjamas', 3),
+(8, '1', 'Horse rider', 1),
+(8, '2', 'Walking', 2),
+(8, '3', 'Boat', 2),
+(8, '4', 'Pigeon', 3),
+(9, '1', 'Grow grain', 1),
+(9, '2', 'Home gardens', 2),
+(9, '3', 'Trade', 2),
+(9, '4', 'Eat less', 3),
+(10, '1', 'Gladiator games', 1),
+(10, '2', 'Big feast', 2),
+(10, '3', 'Music show', 2),
+(10, '4', 'Maths lecture', 3);
 
 INSERT INTO teacher (teacher_name, username, subject_id, head, password)
 VALUES
