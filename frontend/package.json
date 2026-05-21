@@ -21,5 +21,8 @@
     "testPathIgnorePatterns": [
       "__tests__/DOM test/helpers.js"
     ]
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2"
   }
 }
