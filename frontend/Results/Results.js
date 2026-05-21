@@ -22,13 +22,25 @@ document.getElementById("back-nav").addEventListener("click", () => {
 // }
 
 const id = localStorage.getItem("id")
-const ww2Score = localStorage.getItem("ww2Score")
-if (ww2Score !== null) {
-    const bar = document.getElementById("ww2-bar");
-    bar.style.width = `${ww2Score}%`;
-    bar.textContent = `${ww2Score}%`;
-    bar.setAttribute("aria-valuenow", ww2Score); 
+function showScore(challengeId, barId) {
+    const score = localStorage.getItem(`challenge${challengeId}Score`);
+    if (score !== null) {
+        const bar = document.getElementById(barId);
+        bar.style.width = `${score}%`;
+        bar.textContent = `${score}%`;
+        bar.setAttribute("aria-valuenow", score);
+    }
 }
+
+showScore("1", "ww2-bar");
+showScore("2", "romans-bar");
+// const ww2Score = localStorage.getItem("ww2Score")
+// if (ww2Score !== null) {
+//     const bar = document.getElementById("ww2-bar");
+//     bar.style.width = `${ww2Score}%`;
+//     bar.textContent = `${ww2Score}%`;
+//     bar.setAttribute("aria-valuenow", ww2Score); 
+// }
 // async function loadScores (id) {
 //     const response = await fetch(`http://localhost:3000/results/student/${id}`, options)
 
