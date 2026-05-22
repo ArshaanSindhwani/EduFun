@@ -26,7 +26,7 @@ describe('Home.html', () => {
         expect(navBar).toBeTruthy
         const buttonUser = document.getElementById('user-nav')
         expect(buttonUser).toBeTruthy
-        expect(buttonUser.innerHTML).toBe('User info / Profile')
+        expect(buttonUser.innerHTML).toBe('Profile')
         const buttonClasses = document.getElementById('classes-nav')
         expect(buttonClasses).toBeTruthy
         expect(buttonClasses.innerHTML).toBe('My Classes')
