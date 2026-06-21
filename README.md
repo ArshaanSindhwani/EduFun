@@ -2,9 +2,11 @@
 
 > Developed as part of a team project at La Fosse Academy, with contributions focused on backend development, database integration, API design, authentication, and automated testing.
 
-EduFun is a full-stack educational gaming platform designed to improve student engagement through interactive learning experiences.
+EduFun is a full-stack educational gaming platform designed to improve student engagement through interactive, scenario-based learning experiences.
 
-Built using JavaScript, Node.js, Express, PostgreSQL, REST APIs, Jest, and Supertest, the project focuses on scalable backend architecture, authentication, database design, and automated testing.
+Built using JavaScript, Node.js, Express, PostgreSQL, REST APIs, Jest, and Supertest, the application allows users to register, complete educational quiz challenges, track their progress, and view their results through an interactive web interface.
+
+---
 
 ## Technologies
 
@@ -19,21 +21,40 @@ Built using JavaScript, Node.js, Express, PostgreSQL, REST APIs, Jest, and Super
 ### Testing
 - Jest
 - Supertest
+- JSDOM
 
 ### Development
 - Git
 - GitHub
 - Agile Methodologies
 
+---
+
 ## Key Features
 
-- User authentication and account management
-- Educational game platform functionality
-- RESTful API architecture
+- User registration and authentication
+- Educational quiz challenges
+- Scenario-based learning experiences
+- Progress tracking and score management
 - PostgreSQL database integration
+- RESTful API architecture
 - MVC backend structure
 - Unit and integration testing
-- Agile team collaboration
+- Team-based Agile development
+
+---
+
+## User Journey
+
+1. Register an account and log in.
+2. Select an educational challenge from the home screen.
+3. Progress through interactive quiz scenarios.
+4. Track completion using the built-in progress tracker.
+5. View individual game scores and overall learning progress.
+
+The application was designed to improve student engagement by combining educational content with interactive gameplay mechanics.
+
+---
 
 ## Architecture
 
@@ -47,37 +68,138 @@ Express
 PostgreSQL
 ```
 
+---
+
 ## My Contribution
 
-I contributed to the development of the EduFun backend application, working on API architecture, database integration, authentication functionality, automated testing, and Agile delivery practices.
+My primary contributions focused on backend development, including:
+
+- Designing and implementing REST API endpoints
+- PostgreSQL database integration
+- Authentication functionality
+- MVC application architecture
+- Unit testing with Jest
+- Integration testing with Supertest
+- Database schema development
+- Collaborative Git workflow and Agile delivery
+
+---
+
+## Project Structure
+
+```text
+EduFun
+├── frontend
+│   ├── Login
+│   ├── Register
+│   ├── Home
+│   ├── Game
+│   ├── Results
+│   └── __tests__
+│
+├── backend
+│   ├── server
+│   │   ├── Models
+│   │   ├── Controllers
+│   │   ├── Routers
+│   │   ├── Middleware
+│   │   └── DB
+│   │
+│   └── __tests__
+│
+└── Project-Management
+    ├── Wireframes
+    ├── Database Schema
+    └── Solution Diagrams
+```
+
+---
 
 ## Installation
 
+Clone the repository:
+
 ```bash
-git clone <repository-url>
-cd EduFun
-npm install
-npm run dev
+git clone https://github.com/ArshaanSindhwani/EduFun.git
 ```
 
-Configure any required environment variables before running the application.
+Install backend dependencies:
 
-## Screenshots
+```bash
+cd backend
+npm install
+```
 
-Screenshots coming soon.
+Install frontend dependencies:
+
+```bash
+cd ../frontend
+npm install
+```
+
+---
+
+## Running the Application
+
+Start the backend:
+
+```bash
+cd backend
+npm start
+```
+
+Start the frontend:
+
+```bash
+cd frontend
+live-server
+```
+
+---
+
+## Testing
+
+Run backend tests:
+
+```bash
+cd backend
+npm test
+```
+
+Run frontend tests:
+
+```bash
+cd frontend
+npm test
+```
+
+---
 
 ## What I Learned
 
-- Backend development using Express
-- PostgreSQL database design
-- REST API development
-- Authentication and authorisation
-- Automated testing using Jest and Supertest
+This project strengthened my understanding of:
+
+- Building RESTful APIs with Express
+- PostgreSQL database design and integration
+- Authentication and user management
+- Test-driven development principles
+- Unit and integration testing
 - Agile team collaboration
+- Git branching and merge workflows
+
+---
 
 ## Future Improvements
 
-- Enhanced game mechanics
-- Improved analytics and reporting
-- Expanded question libraries
-- Teacher administration functionality
+- Additional educational subjects and challenges
+- Teacher dashboards and analytics
+- Enhanced progress tracking
+- Achievement and reward systems
+- Responsive mobile-first design
+- Cloud deployment and CI/CD pipelines
+
+---
+
+## Screenshots
+
+Screenshots and application demonstrations will be added in a future update.
