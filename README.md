@@ -9,22 +9,18 @@ Built using JavaScript, Node.js, Express, PostgreSQL, REST APIs, Jest, and Super
 ## Technologies
 
 ### Backend
-
 - Node.js
 - Express
 - JavaScript
 
 ### Database
-
 - PostgreSQL
 
 ### Testing
-
 - Jest
 - Supertest
 
 ### Development
-
 - Git
 - GitHub
 - Agile Methodologies
@@ -36,8 +32,7 @@ Built using JavaScript, Node.js, Express, PostgreSQL, REST APIs, Jest, and Super
 - RESTful API architecture
 - PostgreSQL database integration
 - MVC backend structure
-- Unit testing
-- Integration testing
+- Unit and integration testing
 - Agile team collaboration
 
 ## Architecture
@@ -55,6 +50,17 @@ PostgreSQL
 ## My Contribution
 
 I contributed to the development of the EduFun backend application, working on API architecture, database integration, authentication functionality, automated testing, and Agile delivery practices.
+
+## Installation
+
+```bash
+git clone <repository-url>
+cd EduFun
+npm install
+npm run dev
+```
+
+Configure any required environment variables before running the application.
 
 ## Screenshots
 
