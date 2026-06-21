@@ -1,0 +1,46 @@
+{
+  "name": "edufun",
+  "version": "1.0.0",
+  "description": "An application created to make learning more memorable and fun!",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -L ./server/index.js",
+    "start": "node ./server/index.js",
+    "setup-db": "node ./server/DB/setup.js",
+    "test": "jest --watchAll --detectOpenHandles --runInBand --verbose",
+    "unitTests": "jest --testPathPattern=/unit/ --watchAll --verbose",
+    "integrationTests": "jest --testPathPattern=/integration/ --watchAll --detectOpenHandles --runInBand --verbose",
+    "coverage": "jest --coverage --testPathPattern=/unit/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beata-dan/EduFun.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/beata-dan/EduFun/issues"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.14",
+    "supertest": "^6.3.4"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "morgan": "^1.10.1",
+    "pg": "^8.20.0"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "./server/__tests__/integration/config.js"
+    ]
+  },
+  "homepage": "https://github.com/beata-dan/EduFun#readme"
+}
