@@ -151,8 +151,8 @@ npm start
 Start the frontend:
 
 ```bash
-cd frontend
-live-server
+cd ..
+npx live-server
 ```
 
 ---
@@ -172,6 +172,22 @@ Run frontend tests:
 cd frontend
 npm test
 ```
+
+---
+
+## Screenshots
+
+| Login | Registration |
+|--------|--------|
+| ![Login](screenshots/login.png) | ![Registration](screenshots/register.png) |
+
+| Home | Game |
+|--------|--------|
+| ![Home](screenshots/home.png) | ![Game](screenshots/game.png) |
+
+| Results |
+|--------|
+| ![Results](screenshots/results.png) |
 
 ---
 
@@ -197,9 +213,3 @@ This project strengthened my understanding of:
 - Achievement and reward systems
 - Responsive mobile-first design
 - Cloud deployment and CI/CD pipelines
-
----
-
-## Screenshots
-
-Screenshots and application demonstrations will be added in a future update.
