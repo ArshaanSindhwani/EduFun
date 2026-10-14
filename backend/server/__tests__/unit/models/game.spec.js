@@ -32,7 +32,7 @@ describe("Game", () => {
     })
 
     describe("getAllByChallengeId", () => {
-        it("should return a game when given a valid challenge id", async () => {
+        it("should return the questions and answers for a valid challenge id", async () => {
         const testGame = {
             questions_text: "What is the capital of France?",
             image_url: null,
@@ -46,12 +46,12 @@ describe("Game", () => {
 
         const result = await Game.getAllByChallengeId(1)
 
-        expect(result).toEqual(testGame)
+        expect(result).toEqual([testGame])
         expect(db.query).toHaveBeenCalledWith(
             `SELECT q.questions_text, q.image_url, q.question_number, a.answers_id, a.answer_text, a.answer_option, s.score_value
             FROM questions AS q
             JOIN answers AS a 
-            ON q.questions_id = a.question_id
+            ON q.questions_id = a.questions_id
             JOIN score AS s 
             ON a.score_id = s.score_id
             WHERE q.challenge_id = $1
