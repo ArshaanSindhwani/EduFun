@@ -1,126 +1,107 @@
+
 # EduFun
 
-> Developed as part of a team project at La Fosse Academy, with contributions focused on backend development, database integration, API design, authentication, and automated testing.
+> A team project developed at La Fosse Academy, focused on building an educational gaming platform with a Node.js and Express backend, PostgreSQL integration, REST APIs and automated testing.
 
-EduFun is a full-stack educational gaming platform designed to improve student engagement through interactive, scenario-based learning experiences.
+EduFun is a full-stack educational gaming platform designed to make learning more engaging through interactive, scenario-based challenges. Users can register, complete educational quizzes, track their progress and review their results.
 
-Built using JavaScript, Node.js, Express, PostgreSQL, REST APIs, Jest, and Supertest, the application allows users to register, complete educational quiz challenges, track their progress, and view their results through an interactive web interface.
+## Overview
 
----
+The project combines a web frontend with a RESTful backend built using Node.js and Express. PostgreSQL provides database integration, while Jest and Supertest support automated unit and API integration testing.
 
 ## Technologies
 
-### Backend
-- Node.js
-- Express
-- JavaScript
-
-### Database
-- PostgreSQL
-
-### Testing
-- Jest
-- Supertest
-- JSDOM
-
-### Development
-- Git
-- GitHub
-- Agile Methodologies
-
----
+| Area | Technologies |
+|---|---|
+| Backend | Node.js, Express, JavaScript |
+| Database | PostgreSQL |
+| API | REST |
+| Testing | Jest, Supertest |
+| Frontend testing | JSDOM |
+| Development | Git, GitHub, Agile methodologies |
 
 ## Key Features
 
 - User registration and authentication
-- Educational quiz challenges
-- Scenario-based learning experiences
-- Progress tracking and score management
-- PostgreSQL database integration
+- Interactive educational quiz challenges
+- Scenario-based learning
+- Progress tracking and results management
 - RESTful API architecture
 - MVC backend structure
-- Unit and integration testing
-- Team-based Agile development
+- Automated unit and API integration tests
 
----
+## Screenshots
 
-## User Journey
+### Login and Registration
 
-1. Register an account and log in.
-2. Select an educational challenge from the home screen.
-3. Progress through interactive quiz scenarios.
-4. Track completion using the built-in progress tracker.
-5. View individual game scores and overall learning progress.
+| Login | Registration |
+|---|---|
+| ![EduFun login screen](screenshots/login.png) | ![EduFun registration screen](screenshots/register.png) |
+| User sign-in interface. | New-user registration interface. |
 
-The application was designed to improve student engagement by combining educational content with interactive gameplay mechanics.
+### Learning Experience
 
----
+| Home | Game |
+|---|---|
+| ![EduFun home screen](screenshots/home.png) | ![EduFun game screen](screenshots/game.png) |
+| Entry point for accessing learning activities. | Interactive educational challenge interface. |
 
-## Architecture
+### Results and Progress
 
-```text
-Frontend
-    ↓
-REST API
-    ↓
-Express
-    ↓
-PostgreSQL
-```
+![EduFun results screen](screenshots/results.png)
 
----
+The results screen supports reviewing outcomes from completed learning activities.
 
 ## My Contribution
 
-My primary contributions focused on backend development, including:
+My contributions focused on backend development and included work across API design, database integration, authentication and automated testing.
 
-- Designing and implementing REST API endpoints
+- REST API endpoint development
 - PostgreSQL database integration
 - Authentication functionality
-- MVC application architecture
+- MVC application structure
 - Unit testing with Jest
-- Integration testing with Supertest
+- API integration testing with Supertest
 - Database schema development
 - Collaborative Git workflow and Agile delivery
 
----
+## Testing and Coverage
 
-## Project Structure
+The backend test suite uses Jest for unit tests and Supertest for API integration tests. The API integration tests use a mocked model layer.
 
-```text
-EduFun
-├── frontend
-│   ├── Login
-│   ├── Register
-│   ├── Home
-│   ├── Game
-│   ├── Results
-│   └── __tests__
-│
-├── backend
-│   ├── server
-│   │   ├── Models
-│   │   ├── Controllers
-│   │   ├── Routers
-│   │   ├── Middleware
-│   │   └── DB
-│   │
-│   └── __tests__
-│
-└── Project-Management
-    ├── Wireframes
-    ├── Database Schema
-    └── Solution Diagrams
+Run the backend tests:
+
+```bash
+cd backend
+npm test
 ```
 
----
+Generate the coverage report:
 
-## Installation
+```bash
+npm run coverage
+```
+
+Latest recorded test results:
+
+| Metric | Result |
+|---|---:|
+| Test suites passed | 7 of 7 |
+| Tests passed | 37 of 37 |
+| Statement coverage | 87.86% |
+| Branch coverage | 64.10% |
+| Function coverage | 85.18% |
+| Line coverage | 87.71% |
+
+Coverage is collected from backend source files, excluding test files, the server entry point and database setup.
+
+## Installation and Setup
 
 Clone the repository:
 
 ```bash
 git clone https://github.com/ArshaanSindhwani/EduFun.git
+cd EduFun
 ```
 
 Install backend dependencies:
@@ -130,86 +111,33 @@ cd backend
 npm install
 ```
 
-Install frontend dependencies:
-
-```bash
-cd ../frontend
-npm install
-```
-
----
-
-## Running the Application
-
 Start the backend:
 
 ```bash
-cd backend
 npm start
 ```
 
-Start the frontend:
+For development:
 
 ```bash
-cd ..
-npx live-server
+npm run dev
 ```
 
----
-
-## Testing
-
-Run backend tests:
-
-```bash
-cd backend
-npm test
-```
-
-Run frontend tests:
-
-```bash
-cd frontend
-npm test
-```
-
----
-
-## Screenshots
-
-| Login | Registration |
-|--------|--------|
-| ![Login](screenshots/login.png) | ![Registration](screenshots/register.png) |
-
-| Home | Game |
-|--------|--------|
-| ![Home](screenshots/home.png) | ![Game](screenshots/game.png) |
-
-| Results |
-|--------|
-| ![Results](screenshots/results.png) |
-
----
+Install and run the frontend using the scripts configured in `frontend/package.json`.
 
 ## What I Learned
 
-This project strengthened my understanding of:
-
-- Building RESTful APIs with Express
-- PostgreSQL database design and integration
-- Authentication and user management
-- Test-driven development principles
-- Unit and integration testing
-- Agile team collaboration
-- Git branching and merge workflows
-
----
+- Designing RESTful APIs with Express
+- Integrating a PostgreSQL database with a Node.js application
+- Structuring backend code using MVC principles
+- Implementing authentication functionality
+- Writing unit and API integration tests
+- Measuring test coverage and identifying untested code
+- Collaborating through Git, feature branches and Agile practices
 
 ## Future Improvements
 
-- Additional educational subjects and challenges
-- Teacher dashboards and analytics
-- Enhanced progress tracking
-- Achievement and reward systems
-- Responsive mobile-first design
-- Cloud deployment and CI/CD pipelines
+- Expand automated test coverage, particularly for middleware and error-handling paths
+- Strengthen API validation and error handling
+- Extend educational content and challenge types
+- Improve progress reporting and learning analytics
