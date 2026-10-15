@@ -7,10 +7,10 @@
     "dev": "nodemon -L ./server/index.js",
     "start": "node ./server/index.js",
     "setup-db": "node ./server/DB/setup.js",
-    "test": "jest --watchAll --detectOpenHandles --runInBand --verbose",
-    "unitTests": "jest --testPathPattern=/unit/ --watchAll --verbose",
-    "integrationTests": "jest --testPathPattern=/integration/ --watchAll --detectOpenHandles --runInBand --verbose",
-    "coverage": "jest --coverage --testPathPattern=/unit/"
+    "test": "jest --runInBand --detectOpenHandles --verbose",
+    "unitTests": "jest --testPathPattern=/unit/ --verbose",
+    "integrationTests": "jest --testPathPattern=/integration/ --runInBand --verbose",
+    "coverage": "jest --coverage --runInBand"
   },
   "repository": {
     "type": "git",
@@ -40,6 +40,12 @@
   "jest": {
     "testPathIgnorePatterns": [
       "./server/__tests__/integration/config.js"
+    ],
+    "collectCoverageFrom": [
+      "server/**/*.js",
+      "!server/__tests__/**",
+      "!server/index.js",
+      "!server/DB/setup.js"
     ]
   },
   "homepage": "https://github.com/beata-dan/EduFun#readme"
