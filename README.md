@@ -1,85 +1,109 @@
-
 # EduFun
 
-> A team project developed at La Fosse Academy, focused on building an educational gaming platform with a Node.js and Express backend, PostgreSQL integration, REST APIs and automated testing.
+A team project developed at La Fosse Academy: an educational gaming platform with a Node.js and Express backend, PostgreSQL storage, a REST API and automated tests.
 
-EduFun is a full-stack educational gaming platform designed to make learning more engaging through interactive, scenario-based challenges. Users can register, complete educational quizzes, track their progress and review their results.
+EduFun makes learning more engaging through interactive, scenario-based challenges. Students can register, complete quizzes by subject, and review their results and average scores.
 
 ## Overview
 
-The project combines a web frontend with a RESTful backend built using Node.js and Express. PostgreSQL provides database integration, while Jest and Supertest support automated unit and API integration testing.
+The project combines a web frontend with a RESTful backend built on Node.js and Express. PostgreSQL stores students, teachers, subjects, challenges, questions, answers, scores and results. Jest and Supertest cover the backend with unit tests and API tests.
+
+## At a glance
+
+| Item | Detail |
+| - | - |
+| Backend tests | 37 passing across 7 suites (32 unit tests, 5 API tests) |
+| Line coverage | 87.71% |
+| API routes | 9 |
+| Database tables | 9 |
 
 ## Technologies
 
 | Area | Technologies |
-|---|---|
+| - | - |
 | Backend | Node.js, Express, JavaScript |
 | Database | PostgreSQL |
+| Authentication | bcrypt, JSON Web Tokens |
 | API | REST |
 | Testing | Jest, Supertest |
 | Frontend testing | JSDOM |
 | Development | Git, GitHub, Agile methodologies |
 
-## Key Features
+## Key features
 
-- User registration and authentication
+- User registration and login, with password hashing and JWT issuance
 - Interactive educational quiz challenges
 - Scenario-based learning
-- Progress tracking and results management
-- RESTful API architecture
-- MVC backend structure
-- Automated unit and API integration tests
+- Results, average scores and average scores by subject
+- RESTful API with an MVC backend structure
+- Unit tests and Supertest API tests
 
 ## Architecture
 
 ```text
 Frontend
     ↓
-REST API
-    ↓
-Express
+REST API (Express)
     ↓
 PostgreSQL
 ```
 
+The backend is organised into models, controllers, routers and middleware, with a separate module for the database connection and setup.
+
+## API endpoints
+
+The backend exposes 9 routes. Routers are mounted at `/game`, `/results` and `/login`.
+
+| Method | Path | Purpose |
+| - | - | - |
+| GET | / | API welcome message |
+| GET | /game | List all games |
+| GET | /game/:id | Questions and answers for a challenge |
+| GET | /results/:id | Results for a student |
+| GET | /results/:id/average | Average score for a student |
+| GET | /results/:id/subject/:subjectId | Average score for a student in one subject |
+| GET | /login/:name | Find a user by name |
+| POST | /login/register | Register a new user |
+| POST | /login/login | Log in and receive a token |
+
+## Database
+
+The schema in `backend/server/DB/eduFun.sql` defines 9 tables. Run `npm run setup-db` from the `backend` folder to create them.
+
 ## Screenshots
 
-### Login and Registration
+### Login and registration
 
 | Login | Registration |
-|---|---|
+| - | - |
 | ![EduFun login screen](screenshots/login.png) | ![EduFun registration screen](screenshots/register.png) |
 | User sign-in interface. | New-user registration interface. |
 
-### Learning Experience
+### Learning experience
 
 | Home | Game |
-|---|---|
+| - | - |
 | ![EduFun home screen](screenshots/home.png) | ![EduFun game screen](screenshots/game.png) |
 | Entry point for accessing learning activities. | Interactive educational challenge interface. |
 
-### Results and Progress
+### Results and progress
 
 ![EduFun results screen](screenshots/results.png)
 
-## My Contribution
+## My contribution
 
-My contributions focused on backend development and included work across API design, database integration, authentication and automated testing.
+This was a team project and I worked on the backend. My work covered:
 
-Key areas of work included:
+- Developing REST API functionality with Node.js and Express
+- Integrating PostgreSQL for application data
+- Registration and login, including JWT issuance
+- Writing and maintaining automated tests with Jest and Supertest
+- Fixing a failing model test, replacing an empty integration test stub with five working API tests, and extending test reporting so that coverage reflects every backend source file
+- Collaborating through Git, feature branches and pull requests
 
-- Developing REST API functionality using Node.js and Express.
-- Integrating PostgreSQL for application data persistence.
-- Working on registration and login functionality, including JWT issuance.
-- Writing and maintaining automated tests using Jest and Supertest.
-- Improving test reporting to measure backend source-code coverage.
-- Collaborating through Git, feature branches and Agile practices.
+## Testing and coverage
 
-## Testing and Coverage
-
-The backend uses Jest for unit tests and Supertest for API integration tests.
-
-### Run backend tests
+The backend has 37 tests across 7 test suites, and all of them pass: 32 unit tests across 6 suites covering the models and controllers, and 5 Supertest API tests for the game endpoints.
 
 From the repository root:
 
@@ -89,19 +113,17 @@ npm install
 npm test
 ```
 
-Run unit tests separately:
+Run the unit tests on their own:
 
 ```bash
 npm run unitTests
 ```
 
-Run API integration tests separately:
+Run the API tests on their own:
 
 ```bash
 npm run integrationTests
 ```
-
-### Backend coverage
 
 Generate the coverage report:
 
@@ -109,20 +131,18 @@ Generate the coverage report:
 npm run coverage
 ```
 
-The reported results were:
-
 | Metric | Coverage |
-|---|---:|
-| Statement coverage | 87.86% |
-| Branch coverage | 64.10% |
-| Function coverage | 85.18% |
-| Line coverage | 87.71% |
+| - | -: |
+| Statements | 87.86% |
+| Branches | 64.10% |
+| Functions | 85.18% |
+| Lines | 87.71% |
 
-Coverage is collected from backend source files, excluding test files, the server entry point and database setup.
+Coverage is collected from every backend source file except the tests, the server entry point and the database setup script, so untested files count against the figures.
 
-The API tests use mocked model dependencies, so they validate API behaviour without relying on a live database for those tests.
+The API tests use Supertest against the Express app with the model layer mocked. They check routing, status codes and response bodies without needing a live database. The `config.js` and `reset.sql` files in `server/__tests__/integration` are kept for future tests that run against a real test database.
 
-## Installation and Setup
+## Installation and setup
 
 ### Clone the repository
 
@@ -133,20 +153,19 @@ cd EduFun
 
 ### Backend
 
-Install dependencies:
-
 ```bash
 cd backend
 npm install
 ```
 
-Start the backend:
+Create a `.env` file in `backend` with your PostgreSQL connection details and JWT secret, then create the tables and start the server:
 
 ```bash
+npm run setup-db
 npm start
 ```
 
-For development:
+For development with automatic restarts:
 
 ```bash
 npm run dev
@@ -154,41 +173,38 @@ npm run dev
 
 ### Frontend
 
-Open a separate terminal from the repository root:
+From the repository root, in a separate terminal:
 
 ```bash
 cd frontend
 npm install
-```
-
-Start the frontend:
-
-```bash
 npm run dev
 ```
 
-Run frontend tests:
+Run the frontend tests:
 
 ```bash
 npm test
 ```
 
-The frontend test script uses Jest watch mode.
+The frontend test script runs Jest in watch mode.
 
-## What I Learned
+## What I learned
 
-- Designing RESTful APIs with Express.
-- Integrating PostgreSQL with a Node.js application.
-- Structuring backend code using MVC principles.
-- Implementing authentication functionality.
-- Writing unit and API integration tests.
-- Measuring test coverage and identifying untested code.
-- Collaborating through Git, feature branches and Agile practices.
+- Designing RESTful APIs with Express
+- Integrating PostgreSQL with a Node.js application
+- Structuring backend code with MVC principles
+- Implementing registration, login and token issuance
+- Writing unit tests and API tests, and mocking the data layer
+- Measuring test coverage and finding code that tests do not reach
+- Working in a team with Git branches and pull requests
 
-## Future Improvements
+## Future improvements
 
-- Expand automated test coverage, particularly for middleware and error-handling paths.
-- Strengthen API validation and error handling.
-- Extend educational content and challenge types.
-- Improve progress reporting and learning analytics.
-- Explore cloud deployment and CI/CD pipelines.
+- Apply the existing authentication middleware to protected routes
+- Add tests that run against a real test database
+- Expand coverage for middleware and error handling
+- Strengthen API validation and error messages
+- Extend the educational content and challenge types
+- Improve progress reporting
+- Add cloud deployment and a CI pipeline
